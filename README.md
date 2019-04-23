@@ -1,4 +1,4 @@
-# ReccomendApp
+# CoRe - Consumer Rescue (Recommendation App)
 ### Team Members:
 1. Baibolatova Dariya
 2. Alkenova Gulim
