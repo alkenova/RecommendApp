@@ -1,0 +1,1 @@
+from .generic_cbv import products, product_detail, comment, comment_detail
