@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { ProviderService } from './main/services/provider.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductComponent } from './product/product.component';
+import { CommentsComponent } from './comments/comments.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    ProductComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
