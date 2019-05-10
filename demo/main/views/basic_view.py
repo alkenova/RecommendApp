@@ -3,7 +3,8 @@ import json
 from django.http import JsonResponse, HttpResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt
 from main.models import Category
-from main.serializers import CategorySerializer
+from main.serializers import CategorySerializer, ProductSerializer
+
 from rest_framework import status
 
 
@@ -25,6 +26,17 @@ def category_list(request):
             serializer.save()
             return JsonResponse(serializer.data, status = status.HTTP_201_CREATED)
         return JsonResponse(serializer.errors)
+
+
+def category_product(request, pk):
+    try:
+        category = Category.objects.get(id=pk)
+    except Category.DoesNotExist as e:
+        return JsonResponse({'error': str(e)})
+
+    products = category.product_set.all()
+    serializer = ProductSerializer(products, many=True)
+    return JsonResponse(serializer.data, safe=False)
 
 
 

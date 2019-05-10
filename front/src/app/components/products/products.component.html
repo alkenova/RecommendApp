@@ -1,0 +1,11 @@
+<div class ="productsComponent">
+  <div class="container-fluid">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div *ngFor="let p of products" class="col-md-4 col-sm-6 ">
+          <app-product [product] = "p"></app-product>
+        </div>
+      </div>
+      <hr>
+    </div> <!-- /container -->
+  </div>
