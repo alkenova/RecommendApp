@@ -11,7 +11,6 @@ class Category(models.Model):
     description = models.CharField(max_length=400, null=True)
     # created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=2)
 
-
     class Meta:
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'

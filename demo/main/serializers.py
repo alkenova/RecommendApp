@@ -18,12 +18,10 @@ class CategorySerializer(serializers.Serializer):
         instance.save()
         return instance
 
-
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email',)
-
+        fields = ('id', 'username', 'email', )
 
 class CategorySerializer2(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
@@ -49,3 +47,5 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ('id', 'name', 'description', 'image', 'created_at', 'product_list')
+
+

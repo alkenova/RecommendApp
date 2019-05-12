@@ -17,11 +17,7 @@ export class ProductsComponent implements OnInit {
     this.provider.getProducts(this.categoryForProducts.id).then( res => { this.products = res; });
   }
 
-  // getProducts(category: ICategory){
-  //   this.provider.getProducts(category.id).then(res=>{
-  //     this.products=res;
-  //   })
-  // }
+  images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
 
 
 }
