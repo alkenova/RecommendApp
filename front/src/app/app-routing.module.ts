@@ -14,10 +14,14 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        component: ExperimentComponent
+      },
+      {
+        path: 'categories',
         component: CategoriesComponent
       },
       {
-        path: 'products',
+        path: 'categories/products',
         component: ProductsComponent
       },
       {

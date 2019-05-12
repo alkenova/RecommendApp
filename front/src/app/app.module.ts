@@ -17,6 +17,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 
 
@@ -39,6 +41,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     NgbModule,
+    MDBBootstrapModule
+    
   ],
   providers: [ ProviderService,
     {
