@@ -1,0 +1,28 @@
+  <ng-container *ngIf="!logged">
+        <div>
+            <!-- Example row of columns -->
+            <div class>
+              <div *ngFor="let p of products">
+                <app-product [product] = "p"></app-product>
+              </div>
+            </div>
+            <hr>
+          </div> <!-- /container -->
+        
+    </ng-container>
+
+  <ng-container *ngIf="logged">
+    <div (click)="addProduct()" class="addProduct">
+        <button type="button" class="btn" id="singleBtn"> Add new product</button>
+    </div>
+      <div>
+          <!-- Example row of columns -->
+          <div class>
+            <div *ngFor="let p of products">
+              <app-product [product] = "p"></app-product>
+            </div>
+          </div>
+          <hr>
+        </div> <!-- /container -->
+      
+  </ng-container>
