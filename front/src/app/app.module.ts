@@ -18,6 +18,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { AddproductComponent } from './components/addproduct/addproduct.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 
 
@@ -34,6 +37,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     ExperimentComponent,
     LoginComponent,
     SignupComponent,
+    AddproductComponent,
+    CommentsComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

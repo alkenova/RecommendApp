@@ -17,8 +17,11 @@
     <form class="form-inline my-2 my-lg-0" id="login">
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit" routerLink="login" *ngIf="!loggedIn">Log in</button>
     </form>
-    <form class="form-inline my-2 my-lg-0" id="login">
+    <form class="form-inline my-2 my-lg-0" id="login2">
       <button class="btn btn-outline-light my-2 my-sm-0" type="submit" routerLink="signUp" *ngIf="!loggedIn">Sign up</button>
+  </form>
+  <form class="form-inline my-2 my-lg-0" id="login2">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit" routerLink="logout" *ngIf="loggedIn">Log Out</button>
   </form>
   </div>
 </nav>

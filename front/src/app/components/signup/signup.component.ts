@@ -12,11 +12,13 @@ import { IUser } from 'src/app/models/models';
 export class SignupComponent implements OnInit {
 
   
-  public isEmployee = false;
+  public isMember = false;
   public authorized = false;
-  public login='';
+  public username='';
   public password='';
   public email='';
+  public surname='';
+  public name='';
   
   constructor(private router: Router, private provider: ProviderService) { }
 
@@ -28,9 +30,10 @@ export class SignupComponent implements OnInit {
    this.router.navigateByUrl('');
   }
   signUp() {
-    if (this.login !== '' || this.password !== '' || this.email !=='') {
-      this.provider.createUser(this.login, this.password, this.email).then( res => {
+    if (this.username !== '' || this.password !== '' || this.email !==''|| this.surname !=='' || this.name !== '') {
+      this.provider.createUser(this.username, this.password, this.email, this.name, this.surname).then( res => {
               alert('You have succesfully registred');
+              this.router.navigateByUrl('');
           });
      }
   }

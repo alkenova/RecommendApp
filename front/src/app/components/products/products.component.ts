@@ -9,15 +9,25 @@ import { ProviderService } from 'src/app/services/provider.service';
 })
 export class ProductsComponent implements OnInit {
 
+  public logged=false;
+
   constructor(private provider: ProviderService) { }
   public categoryForProducts: ICategory;
   public products: IProduct[]=[];
   ngOnInit() { 
     this.categoryForProducts = this.provider.getCategoryForProducts();
     this.provider.getProducts(this.categoryForProducts.id).then( res => { this.products = res; });
+
+    const token = localStorage.getItem('token');
+    if(token){
+      this.logged=true;
+    }
+    // if(this.logged){
+
+    // }
   }
 
-  // images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
-
-
+  // addProduct(){
+  //   this.provider
+  // }
 }

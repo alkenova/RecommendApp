@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { MainService } from './main.service';
 import { HttpClient } from '@angular/common/http';
-import { ICategory, IProduct, IAuthResponse, IUser} from '../models/models';
+import { ICategory, IProduct, IAuthResponse, IUser, IComment} from '../models/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProviderService extends MainService {
   public categoryForProducs: ICategory;
+  public productForComments: IProduct
   public logged = false;
 
   constructor(http: HttpClient) {
@@ -26,13 +27,26 @@ export class ProviderService extends MainService {
     return this.categoryForProducs;
    }
 
+
+   getProductForComments(){
+    return this.productForComments;
+   }
+
+   setProductForComments(product: IProduct){
+    this.productForComments = product;
+ }
+
    getProducts(id:number):Promise<IProduct[]>{
     return this.get(`http://localhost:8000/categories/${id}/products/`, {});
    } 
 
+   getComments(id:number):Promise<IComment[]>{
+    return this.get(`http://localhost:8000/products/${id}/comments/`, {id});
+   } 
+
 
   login(username: string, password: string): Promise<IAuthResponse> {
-    return this.post('http://localhost:8000/user/login/', {
+    return this.post('http://localhost:8000/login/', {
       username: username,
       password: password
     });
@@ -43,12 +57,13 @@ export class ProviderService extends MainService {
     });
   }
 
-  createUser(username:string,password:string,email:string):Promise<IUser>{
+  createUser(username:string,password:string,email:string, name:string, surname:string):Promise<IUser>{
     return this.post(`http://localhost:8000/users/create/`,{
       username:username,
       password:password,
       email:email,
-      isMember:true
+      name:name,
+      surname:surname,
     });
   }
 }

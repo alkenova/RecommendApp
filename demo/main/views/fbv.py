@@ -38,3 +38,30 @@ def product_list(request, pk):
             return Response(serializer.data)
         return Response(serializer.errors)
 
+# @api_view(['GET','PUT','DELETE', 'POST'])
+# def product_list(request, pk):
+#     try:
+#         taski = Product.objects.get(id=pk)
+#     except Product.DoesNotExist:
+#         return Response(status=status.HTTP_404_NOT_FOUND)
+#
+#     if request.method == 'GET':
+#         serializer = ProductSerializer(taski)
+#         return Response(serializer.data)
+#     elif request.method == 'PUT':
+#         serializer = ProductSerializer(instance=taski, data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+#         return Response(serializer.errors)
+#     elif request.method == 'DELETE':
+#         taski.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
+#     elif request.method == 'POST':
+#         serializer = ProductSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+#         return Response(serializer.errors)
+
+

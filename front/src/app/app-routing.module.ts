@@ -6,6 +6,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { ExperimentComponent } from './components/experiment/experiment.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
         path: 'signUp',
         component: SignupComponent
       },
+      {
+        path:'categories/products/comments',
+        component: CommentsComponent
+      }
     ]
   }
 ];

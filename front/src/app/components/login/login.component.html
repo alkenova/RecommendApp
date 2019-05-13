@@ -4,10 +4,10 @@
      <p class="h4 mb-4">Sign in</p>
    
      <!-- Email -->
-     <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+     <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" [(ngModel)]="username" name= "username" placeholder="Username">
    
      <!-- Password -->
-     <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+     <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" [(ngModel)]="password" name= "password" placeholder="Password">
    
    
      <!-- Sign in button -->

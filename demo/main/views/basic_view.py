@@ -27,7 +27,7 @@ def category_list(request):
             return JsonResponse(serializer.data, status = status.HTTP_201_CREATED)
         return JsonResponse(serializer.errors)
 
-
+@csrf_exempt
 def category_product(request, pk):
     try:
         category = Category.objects.get(id=pk)

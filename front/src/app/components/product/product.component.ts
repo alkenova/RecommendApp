@@ -23,6 +23,10 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
+  showCommentsOfProduct(product: IProduct){
+    this.provider.setProductForComments(product);
+  }
+
   // showProductsOfCategory(){
   //   this.provider.setCategoryForProducts(this.category);
   //   this.router.navigateByUrl('products');

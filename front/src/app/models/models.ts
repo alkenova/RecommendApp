@@ -12,19 +12,22 @@ export interface IProduct{
 }
 export interface IAuthResponse{
     token: string;
-}
-
-export interface User {
-    username: string;
-    password: string;
+    username:string;
 }
 
 export interface IUser {
     id: number;
     password: string;
     username: string;
-    first_name: string;
-    last_name: string;
+    name: string;
+    surname: string;
     email: string;
-    isMember: boolean; 
+}
+
+export interface IComment {
+    id: number;
+    content: string;
+    rating: number;
+    product:IProduct;
+    created_by: IUser;
 }
