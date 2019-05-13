@@ -40,15 +40,11 @@ class Product(models.Model):
     def __str__(self):
         return '{}: {}'.format(self.id, self.name)
 
-    def to_json(self):
-        return {
-            'id': self.id,
-            'name': self.name,
-            'created_at':self.created_at,
-            'image': self.image,
-            'description':self.description,
-            'product_list':self.product_list
-        }
+
+class CommentManager(models.Manager):
+    def product_filter(self, product):
+        return self.filter(product=product)
+
 
 class Comment(models.Model):
     content = models.CharField(max_length=400)
@@ -56,14 +52,6 @@ class Comment(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, default=1)
     rating = models.IntegerField(default=0)
 
+    objects = CommentManager()
     def __str__(self):
         return '{}: {}'.format(self.id, self.content)
-
-    def to_json(self):
-        return {
-            'id': self.id,
-            'content': self.content,
-            'created_by':self.created_by,
-            'product':self.product,
-            'rating':self.rating
-        }

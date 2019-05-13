@@ -1,8 +1,8 @@
-from main.models import Category, Comment
+from main.models import Category, Comment, Product
 from main.serializers import CategorySerializer,CategorySerializer2, CommentSerializer
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated,AllowAny
-
+from django.http import Http404
 
 class CategoryList(generics.ListCreateAPIView):
     queryset = Category.objects.all()
@@ -14,7 +14,19 @@ class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer2
 
+
 class CommentList(generics.ListCreateAPIView):
-    queryset = Comment.objects.all()
+
     serializer_class = CommentSerializer
+    
+    def get_queryset(self):
+        try:
+            product = Product.objects.get(id=self.kwargs['pk'])
+        except:
+            raise Http404
+
+        return Comment.objects.product_filter(product=product)
+
+    def perform_create(self, serializer):
+        serializer.save(created_by=self.request.user)
 

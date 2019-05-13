@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProviderService } from 'src/app/services/provider.service';
 import { Router } from '@angular/router';
-import { IProduct, ICategory } from 'src/app/models/models';
+import { IProduct, ICategory, IComment } from 'src/app/models/models';
 
 @Component({
   selector: 'app-product',
@@ -16,15 +16,16 @@ export class ProductComponent implements OnInit {
   public meals:IProduct[]=[];
   public current:ICategory;
   public showCat=true;
-
   @Input()
   public product: IProduct;
 
   ngOnInit() {
+
   }
 
   showCommentsOfProduct(product: IProduct){
     this.provider.setProductForComments(product);
+    console.log(product);
   }
 
   // showProductsOfCategory(){

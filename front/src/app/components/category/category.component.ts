@@ -20,5 +20,5 @@ export class CategoryComponent implements OnInit {
 
   showProductsOfCategory(category: ICategory){
     this.provider.setCategoryForProducts(category);
-  }
+  } 
 }

@@ -54,7 +54,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     content = serializers.CharField(max_length=400, required=True)
-    product = ProductSerializer(read_only=True),
+    product = ProductSerializer(required=True),
     created_by = UserSerializer(read_only=True),
     rating = serializers.IntegerField(required=True)
 

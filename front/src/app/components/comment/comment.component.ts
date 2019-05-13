@@ -12,9 +12,10 @@ export class CommentComponent implements OnInit {
   constructor(private provider: ProviderService) { }
 
   @Input()
-  public comment: IComment;
+  comment: IComment;
 
   ngOnInit() {
+    console.log(this.comment);
   }
 
 }

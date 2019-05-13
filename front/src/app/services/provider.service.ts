@@ -7,8 +7,8 @@ import { ICategory, IProduct, IAuthResponse, IUser, IComment} from '../models/mo
   providedIn: 'root'
 })
 export class ProviderService extends MainService {
-  public categoryForProducs: ICategory;
-  public productForComments: IProduct
+  public categoryForProducts: ICategory;
+  public productForComments: IProduct;
   public logged = false;
 
   constructor(http: HttpClient) {
@@ -20,11 +20,11 @@ export class ProviderService extends MainService {
    }  
 
    setCategoryForProducts(category: ICategory){
-      this.categoryForProducs = category;
+      this.categoryForProducts = category;
    }
 
    getCategoryForProducts(){
-    return this.categoryForProducs;
+    return this.categoryForProducts;
    }
 
 
@@ -34,14 +34,14 @@ export class ProviderService extends MainService {
 
    setProductForComments(product: IProduct){
     this.productForComments = product;
- }
+    }
 
    getProducts(id:number):Promise<IProduct[]>{
     return this.get(`http://localhost:8000/categories/${id}/products/`, {});
    } 
 
    getComments(id:number):Promise<IComment[]>{
-    return this.get(`http://localhost:8000/products/${id}/comments/`, {id});
+    return this.get(`http://localhost:8000/products/${id}/comments/`, {});
    } 
 
 
