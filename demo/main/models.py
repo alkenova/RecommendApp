@@ -14,7 +14,7 @@ class Category(models.Model):
     created_at = models.DateTimeField()
     description = models.CharField(max_length=400, null=True)
     created_by = models.ForeignKey(MainUser, on_delete=models.CASCADE, default=1)
-
+    created_at = models.DateTimeField(auto_now_add = True)
 
     class Meta:
         verbose_name = 'Category'
@@ -54,7 +54,7 @@ class Comment(models.Model):
     created_by=models.ForeignKey(MainUser, on_delete=models.CASCADE, default=1)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, default=1)
     rating = models.IntegerField(default=0)
-
+    
     objects = CommentManager()
     def __str__(self):
         return '{}: {}'.format(self.id, self.content)

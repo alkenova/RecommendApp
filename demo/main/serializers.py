@@ -9,6 +9,7 @@ class CategorySerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(required=True)
     description = serializers.CharField(required=True)
+    
 
     def create(self, validated_data):
         category = Category(**validated_data)
@@ -29,10 +30,10 @@ class CategorySerializer2(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(required=True)
     description = serializers.CharField(required=True)
-
+    
     class Meta:
         model = Category
-        fields = ('id', 'name', 'description',)
+        fields = ('id', 'name', 'description', 'category')
         # fields = '__all__'
 
 
