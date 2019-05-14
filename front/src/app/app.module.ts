@@ -21,6 +21,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 
@@ -40,6 +41,7 @@ import { CommentComponent } from './components/comment/comment.component';
     AddproductComponent,
     CommentsComponent,
     CommentComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
