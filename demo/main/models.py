@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from auth_.models import MainUser
+
 from rest_framework import serializers
 
 
@@ -11,7 +13,8 @@ class Category(models.Model):
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField()
     description = models.CharField(max_length=400, null=True)
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    created_by = models.ForeignKey(MainUser, on_delete=models.CASCADE, default=1)
+
 
     class Meta:
         verbose_name = 'Category'
@@ -48,7 +51,7 @@ class CommentManager(models.Manager):
 
 class Comment(models.Model):
     content = models.CharField(max_length=400)
-    created_by=models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    created_by=models.ForeignKey(MainUser, on_delete=models.CASCADE, default=1)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, default=1)
     rating = models.IntegerField(default=0)
 

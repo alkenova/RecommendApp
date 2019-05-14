@@ -44,9 +44,11 @@ export class ProviderService extends MainService {
     return this.get(`http://localhost:8000/products/${id}/comments/`, {});
    } 
 
+
   searchProductByName(name:string): Promise<IProduct[]>{
     return this.get(`http://localhost:8000/products/?search=${name}/`, {name})
   }
+
 
   login(username: string, password: string): Promise<IAuthResponse> {
     return this.post('http://localhost:8000/login/', {
